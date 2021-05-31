@@ -1,4 +1,4 @@
-local url = string.format("https://github.com/xChonkster/TardHub/tree/main/Games/%s.lua?raw=true", 
+local url = string.format("https://github.com/xChonkster/TardHub/blob/main/Games/%s.lua?raw=true", 
 	(function()
 		local games_meta = {
 			[286090429] = "Arsenal"
@@ -16,4 +16,5 @@ end
 
 queue_on_teleport(game:HttpGet("https://github.com/xChonkster/TardHub/blob/main/Loader.lua?raw=true"))
 
-loadstring(game:HttpGet(url))()
+local func, err = loadstring(game:HttpGet(url))
+if not func then warn(err) else return func() end
